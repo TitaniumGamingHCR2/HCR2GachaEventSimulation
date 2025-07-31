@@ -9,13 +9,14 @@ def ZoeysYardSale() -> int:
     # Initialize the list to keep track of collected rewards
     collected_rewards = []
 
-    # Main loop
-  
+    # Main loop to collect rewards until all 12 are collected
+    # The loop continues until the collected_rewards list contains all integers from 1 to 12
     while not verify(collected_rewards):
 
         n = random.randint(1, 1000)
         turn += 1
 
+        # Determine the reward based on the random number
         if n <= 25:
             # 2.5% chance to get reward 1
             collected_rewards.append(1)
