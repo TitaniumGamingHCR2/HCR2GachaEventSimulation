@@ -4,8 +4,10 @@ def LostRacersSwag() -> int:
     """
     import random
 
+    # Initialize the sky rock balance
+    sky_rock_balance = 0
     # Initialize the turn counter
-    turn = 1
+    turn = 0
     # Initialize the list to keep track of collected rewards
     collected_rewards = []
 
@@ -16,43 +18,107 @@ def LostRacersSwag() -> int:
         n = random.randint(1, 1000)
         turn += 1
 
-        # Determine the reward based on the random number
+        # Determine the reward based on the random number. Get skyrocks from duplicates
         if n <= 50:
             # 5 % chance to get reward 1
             collected_rewards.append(1)
+            if 1 in collected_rewards:
+                sky_rock_balance += 100
         elif n <= 130:
             # 8 % chance to get reward 2
             collected_rewards.append(2)
+            if 2 in collected_rewards:
+                sky_rock_balance += 60
         elif n <= 180:
             # 5 % chance to get reward 3
             collected_rewards.append(3)
+            if 3 in collected_rewards:
+                sky_rock_balance += 100
         elif n <= 280:
             # 10 % chance to get reward 4
             collected_rewards.append(4)
+            if 4 in collected_rewards:
+                sky_rock_balance += 50
         elif n <= 350:
             # 7 % chance to get reward 5
             collected_rewards.append(5)
+            if 5 in collected_rewards:
+                sky_rock_balance += 70 
         elif n <= 375:
             # 2.5 % chance to get reward 6
             collected_rewards.append(6)
+            if 6 in collected_rewards:
+                sky_rock_balance += 200
         elif n <= 525:
             # 15 % chance to get reward 7
             collected_rewards.append(7)
+            if 7 in collected_rewards:
+                sky_rock_balance += 30
         elif n <= 555:
             # 3 % chance to get reward 8
             collected_rewards.append(8)
+            if 8 in collected_rewards:
+                sky_rock_balance += 170
         elif n <= 655:
             # 10 % chance to get reward 9
             collected_rewards.append(9)
+            if 9 in collected_rewards:
+                sky_rock_balance += 50
         elif n <= 745:
             # 9 % chance to get reward 10
             collected_rewards.append(10)
+            if 10 in collected_rewards:
+                sky_rock_balance += 60
         elif n <= 925:
             # 18 % chance to get reward 11
             collected_rewards.append(11)
+            if 11 in collected_rewards:
+                sky_rock_balance += 30
         elif n <= 1000:
             # 7.5% chance to get reward 12
             collected_rewards.append(12)
+            if 12 in collected_rewards:
+                sky_rock_balance += 70
+
+        # Spending skyrocks for non-collected rewards
+        # If the player has enough sky rocks, they can buy the rewards directly
+        if 6 not in collected_rewards and sky_rock_balance >= 400:
+            collected_rewards.append(6)
+            sky_rock_balance -= 400
+        if 8 not in collected_rewards and sky_rock_balance >= 300:
+            collected_rewards.append(8)
+            sky_rock_balance -= 300
+        if 1 not in collected_rewards and sky_rock_balance >= 200:
+            collected_rewards.append(1)
+            sky_rock_balance -= 200
+        if 3 not in collected_rewards and sky_rock_balance >= 180:
+            collected_rewards.append(3)
+            sky_rock_balance -= 180
+        if 12 not in collected_rewards and sky_rock_balance >= 140:
+            collected_rewards.append(12)
+            sky_rock_balance -= 140
+        if 5 not in collected_rewards and sky_rock_balance >= 120:
+            collected_rewards.append(5)
+            sky_rock_balance -= 120
+        if 2 not in collected_rewards and sky_rock_balance >= 110:
+            collected_rewards.append(2)
+            sky_rock_balance -= 110
+        if 10 not in collected_rewards and sky_rock_balance >= 110:
+            collected_rewards.append(10)
+            sky_rock_balance -= 110
+        if 9 not in collected_rewards and sky_rock_balance >= 100:
+            collected_rewards.append(9)
+            sky_rock_balance -= 100
+        if 4 not in collected_rewards and sky_rock_balance >= 90:
+            collected_rewards.append(4)
+            sky_rock_balance -= 90
+        if 7 not in collected_rewards and sky_rock_balance >= 50:
+            collected_rewards.append(7)
+            sky_rock_balance -= 50
+        if 11 not in collected_rewards and sky_rock_balance >= 50:
+            collected_rewards.append(11)
+            sky_rock_balance -= 50
+            
     # Return the number of turns taken to collect all rewards
     return turn
 
