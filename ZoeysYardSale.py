@@ -21,64 +21,76 @@ def ZoeysYardSale() -> int:
         # Determine the reward based on the random number. Get skyrocks from duplicates
         if n <= 25:
             # 2.5% chance to get reward 1
-            collected_rewards.append(1)
             if 1 in collected_rewards:
                 sky_rock_balance += 200
+            else:
+                collected_rewards.append(1)
         elif n <= 125:
             # 10 % chance to get reward 2
-            collected_rewards.append(2)
             if 2 in collected_rewards:
                 sky_rock_balance += 50
+            else:
+                collected_rewards.append(2)
         elif n <= 200:
             # 7.5% chance to get reward 3
-            collected_rewards.append(3)
             if 3 in collected_rewards:
                 sky_rock_balance += 70
+            else:
+                collected_rewards.append(3)
         elif n <= 225:
             # 2.5% chance to get reward 4
-            collected_rewards.append(4)
             if 4 in collected_rewards:
                 sky_rock_balance += 200
+            else:
+                collected_rewards.append(4)
         elif n <= 275:
             # 5% chance to get reward 5
-            collected_rewards.append(5)
             if 5 in collected_rewards:
                 sky_rock_balance += 100
+            else:
+                collected_rewards.append(5)
         elif n <= 425:
             # 15 % chance to get reward 6
-            collected_rewards.append(6)
             if 6 in collected_rewards:
                 sky_rock_balance += 30
+            else:
+                collected_rewards.append(6)
         elif n <= 450:
             # 2.5% chance to get reward 7
-            collected_rewards.append(7)
             if 7 in collected_rewards:
                 sky_rock_balance += 200
+            else:
+                collected_rewards.append(7)
         elif n <= 650:
             # 20 % chance to get reward 8
-            collected_rewards.append(8)
             if 8 in collected_rewards:
                 sky_rock_balance += 30
+            else:
+                collected_rewards.append(8)
         elif n <= 750:
             # 10 % chance to get reward 9
-            collected_rewards.append(9)
             if 9 in collected_rewards:
                 sky_rock_balance += 50
+            else:
+                collected_rewards.append(9)
         elif n <= 775:
             # 2.5% chance to get reward 10
-            collected_rewards.append(10)
             if 10 in collected_rewards:
                 sky_rock_balance += 200
+            else:
+                collected_rewards.append(10)
         elif n <= 925:
             # 15 % chance to get reward 11
-            collected_rewards.append(11)
             if 11 in collected_rewards:
                 sky_rock_balance += 30
+            else:
+                collected_rewards.append(11)
         elif n <= 1000:
             # 7.5% chance to get reward 12
-            collected_rewards.append(12)
             if 12 in collected_rewards:
                 sky_rock_balance += 70
+            else:
+                collected_rewards.append(12)
 
         # Spending skyrocks for non-collected rewards
         # If the player has enough sky rocks, they can buy the rewards directly
