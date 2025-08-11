@@ -134,6 +134,26 @@ def verify(l : list) -> bool:
     """
     return all(i in l for i in range(1, 13))
 
+def gems_cost(spins : int, one_spin : int, five_spins : int) -> int:
+    """
+    Calculates the total cost in gems for the given number of spins.
+    Args:
+        spins (int): The number of spins.
+        one_spin (int): The cost of a single spin.
+        five_spins (int): The cost of a five-spin bundle.
+    Returns:
+        int: The total cost in gems.
+    """
+    total_cost = 0
+    while spins > 0:
+        if spins >= 5:
+            total_cost += five_spins
+            spins -= 5
+        else:
+            total_cost += one_spin * spins
+            spins = 0
+    return total_cost
+
 def simulation_stats():
     import matplotlib.pyplot as plt
 
@@ -152,6 +172,10 @@ def simulation_stats():
     # Print the minimum number of turns taken
     min_turns = min(results)
     print(f"Minimum turns taken to collect all rewards: {min_turns}")
+
+    # Print the average gem cost
+    average_gem_cost = gems_cost(round(average_turns, 0), 200, 900)
+    print(f"Average gem cost for {average_turns} turns: {average_gem_cost}")
 
     # Plotting the results
     plt.hist(results, bins=range(1, max(results) + 1), alpha=0.75, color='pink')
